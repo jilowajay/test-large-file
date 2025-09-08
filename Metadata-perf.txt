@@ -1,0 +1,120 @@
+BPU 
+
+Admin -
+------
+/v2/repository/folders/2/list  Post  765ms , 456ms , 604ms , 594 ms , 626ms
+/v2/repository/folders/2/ancestors Get 1.61s
+/v2/repository/gitrestore/status  628ms 
+/v2/repository/folders/2   382 ms
+v2/repository/folders/2/children GET 385 ms   (Bots), 482ms ( Bots -> fol1)
+/v2/repository/folders/430259  GET  356 ms , 603ms
+
+
+id ( 2 - Bots, )
+
+---------------------------------------------------------------------------------
+
+
+c1 ( creator user)
+-------------------
+
+v2/repository/workspace/defaults GET 375ms
+/v2/repository/workspaces/public/files/list POST 554ms
+/v2/repository/workspaces/private/files/list POST 516ms
+
+Private ws ( id ( 8 - Bots, )
+
+/v2/repository/folders/8/list POST 445ms, 494ms  
+/v2/repository/folders/8/ancestors Get 522ms , 556ms
+/v2/repository/folders/2  436ms
+
+
+Public ws ( id ( 2 - Bots, )
+/v2/repository/folders/2/list  Post  477ms , 606ms ,617ms , 580ms
+/v2/repository/folders/2/ancestors Get 1.13s, 2.42ms, 2.29s
+/v2/repository/folders/2   466 ms , 373ms
+v2/repository/folders/2/children GET 1.55s   (Bots), 405ms ( Bots -> fol1)
+
+
+
+
+Create a bot in private 
+/v2/repository/files  POST 383ms
+/v2/repository/files/453328/content?hasErrors=false POST 1.15s
+/v2/repository/files/453328/dependencies PUT 395ms
+/v2/repository/files/453328 GET 474ms
+/v2/repository/files/453328/content GET 456ms 
+/v2/repository/files/453328/dependencies  GET 376ms
+
+
+Checkin -
+1. 34s
+
+2. 32s
+
+3. 33s
+
+Time spent to commitFilesToGit 30 seconds
+
+ Time spent on add/rm command in commit 3 seconds
+ Time spent on git.commit command in commit 26 seconds
+ Time spent on getCommitedFiles in commit 969 milliseconds
+ 
+
+Time spent to commitFilesToGit 33 seconds
+  Time spent on add/rm command in commit 3 seconds
+  Time spent on git.commit command in commit 28 seconds
+  Time spent on getCommitedFiles in commit 1 seconds
+  
+Time spent on add/rm command in commit 4 seconds
+Time spent on git.commit command in commit 25 seconds
+================================================
+ select count(*) from AAfile;  234785
+ select count(*) from AAFile where is_metadata = 1 ;  222510
+ select distinct(name) from AAFile where is_metadata = 1;  50 
+ Select count(*) from Git_commit;  10111 
+  select count(*) from AAFile where is_directory = 1; 58
+  
+Repo 
+       ('0' folder - 7.51 GB 3L+ files)
+       ('.git' - 179 MB, 85,607 Files, 267 Folders)
+	   ('.git/objects' - 138MB 85,600 Files, 258 Folders)
+	   ('AA' - 7.33GB 229,200 Files, 21,719 Folders)
+$ git count-objects -vH
+count: 85600
+size: 138.52 MiB
+in-pack: 0
+packs: 0
+size-pack: 0 bytes
+prune-packable: 0
+garbage: 0
+size-garbage: 0 bytes
+
+
+
+
+
+
+
+--------------------------------------------------------
+After deleting metadata records from AAFile : 12279
+--------------------------------------------------------
+
+Ancestor   ~ 500ms
+children  ~ 500ms
+
+27 seconds
+20 seconds
+21 seconds
+Time spent to commitFilesToGit 20 seconds
+    Time spent on add/rm command in commit 3 seconds
+    Time spent on git.commit command in commit 16 seconds
+	
+Time spent to commitFilesToGit 26 seconds
+    Time spent on git.commit command in commit 17 seconds
+    Time spent on add/rm command in commit 8 seconds
+Time spent to commitFilesToGit 20 seconds
+   Time spent on add/rm command in commit 4 seconds
+      Time spent on git.commit command in commit 15 seconds
+
+
