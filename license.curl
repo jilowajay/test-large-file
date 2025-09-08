@@ -1,0 +1,38 @@
+curl --location '
+https://license-oca.herokuapp.com/oca/v2/user/createDefaultCloudLicense'
+\
+--header 'Accept-Language: en-US,en;q=0.9' \
+--header 'Connection: keep-alive' \
+--header 'Content-Type: application/json' \
+--header 'Origin:
+https://license-oca.herokuapp.com'
+\
+--header 'Referer:
+https://license-oca.herokuapp.com/swagger-ui/'
+\
+--header 'Sec-Fetch-Dest: empty' \
+--header 'Sec-Fetch-Mode: cors' \
+--header 'Sec-Fetch-Site: same-origin' \
+--header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36' \
+--header 'accept: */*' \
+--header 'accountName: {{randomString}}' \
+--header 'crId: {{licenseGuid}}' \
+--header 'sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"' \
+--header 'sec-ch-ua-mobile: ?0' \
+--header 'sec-ch-ua-platform: "Windows"' \
+--data '{
+  "allDeviceLicenseCount": 100,
+  "allMetricLicenseCount": 1000,
+  "coPilotPackName": {
+    "allFeaturesEnabled": true,
+    "packName": "PLUS",
+    "skuPurchased": true
+  },
+  "defaultDays": 90,
+  "enterprisePackCreationRequest": {
+    "allFeaturesEnabled": true,
+    "packName": "PLUS",
+    "skuPurchased": true
+  },
+  "metricCluster": true
+}'
